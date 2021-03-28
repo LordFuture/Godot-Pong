@@ -5,22 +5,21 @@ public class Ball : KinematicBody2D
 {
     float ballSpeed = 600.0f;
     Vector2 ballVelocity = Vector2.Zero;
-
-
-
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
-    }
+        GD.Randomize();
+        int[] randomX = {-1, 1};
+        float[] randomY = {-0.8f, 0.8f};
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+        ballVelocity.x = randomX[GD.Randi() % 2];
+        ballVelocity.y = randomY[GD.Randi() % 2];
+    }
+    public override void _PhysicsProcess(float delta)
+    {
+        KinematicCollision2D  ballCollisionObject = MoveAndCollide(ballVelocity * ballSpeed * delta);
+        if(ballCollisionObject != null)
+        {
+            ballVelocity = ballVelocity.Bounce(ballCollisionObject.Normal);
+        }
+    }
 }
