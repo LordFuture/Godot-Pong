@@ -5,7 +5,8 @@ public class Ball : KinematicBody2D
 {
     float ballSpeed = 600.0f;
     Vector2 ballVelocity = Vector2.Zero;
-    public override void _Ready()
+
+    private void LaunchBall(ref Vector2 ballVelocity)
     {
         GD.Randomize();
         int[] randomX = {-1, 1};
@@ -13,6 +14,10 @@ public class Ball : KinematicBody2D
 
         ballVelocity.x = randomX[GD.Randi() % 2];
         ballVelocity.y = randomY[GD.Randi() % 2];
+    }
+    public override void _Ready()
+    {
+        LaunchBall(ref ballVelocity);
     }
     public override void _PhysicsProcess(float delta)
     {
