@@ -59,7 +59,9 @@ public class Ball : KinematicBody2D
     }
     public override void _PhysicsProcess(float delta)
     {
-        KinematicCollision2D  ballCollisionObject = MoveAndCollide(ballVelocity * ballSpeed * delta);
+        KinematicCollision2D  ballCollisionObject = 
+            MoveAndCollide(ballVelocity * ballSpeed * delta);
+            
         if(ballCollisionObject != null)
         {
             ballVelocity = ballVelocity.Bounce(ballCollisionObject.Normal);
