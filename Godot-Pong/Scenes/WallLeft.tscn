@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="WallLeft" type="Area2D"]
+position = Vector2( -54, 360 )
+scale = Vector2( 5, 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1.06298, 1.73223 )
+shape = SubResource( 1 )

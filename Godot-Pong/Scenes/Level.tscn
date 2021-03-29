@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/WallTop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/WallBottom.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Opponent.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/DottedLine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/WallLeft.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/WallRight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Components/Level.cs" type="Script" id=10]
 
 [node name="Level" type="Node"]
+script = ExtResource( 10 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
@@ -17,3 +23,13 @@
 [node name="WallTop" parent="." instance=ExtResource( 3 )]
 
 [node name="WallBottom" parent="." instance=ExtResource( 4 )]
+
+[node name="DottedLine" parent="." instance=ExtResource( 7 )]
+
+[node name="Ball" parent="." instance=ExtResource( 6 )]
+
+[node name="WallLeft" parent="." instance=ExtResource( 8 )]
+
+[node name="WallRight" parent="." instance=ExtResource( 9 )]
+[connection signal="body_entered" from="WallLeft" to="." method="_on_WallLeft_body_entered"]
+[connection signal="body_entered" from="WallRight" to="." method="_on_WallRight_body_entered"]
