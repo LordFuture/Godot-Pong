@@ -7,6 +7,12 @@ public class Level : Node
     const float PositionStartY = 360.0f;
     KinematicBody2D currentBall = null;
 
+    Label playerScoreLabel = null;
+    Label opponentScoreLabel = null;
+
+    int playerScore = 0;
+    int opponentScore = 0;
+
     private void RelaunchBall()
     {
         foreach(Node child in GetChildren())
@@ -23,12 +29,14 @@ public class Level : Node
     
     private void _on_WallLeft_body_entered(Node body)
     {
+        opponentScore++;
         currentBall.Position = new Vector2(PositionStartX, PositionStartY);
         RelaunchBall();
     }
 
     private void _on_WallRight_body_entered(Node body)
     {
+        playerScore++;
         currentBall.Position = new Vector2(PositionStartX, PositionStartY);
         RelaunchBall();
     }
@@ -37,5 +45,13 @@ public class Level : Node
     public override void _Ready()
     {
         currentBall = GetNode<KinematicBody2D>("Ball");
+        playerScoreLabel = GetNode<Label>("PlayerScore");
+        opponentScoreLabel = GetNode<Label>("OpponentScore");
+    }
+
+    public override void _Process(float delta)
+    {
+        playerScoreLabel.Text = playerScore.ToString();
+        opponentScoreLabel.Text = opponentScore.ToString();
     }
 }
