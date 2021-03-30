@@ -25,7 +25,7 @@ The following resources were also useful:
 [YouTube Video: Learn Godot by creating Pong](https://www.youtube.com/watch?v=kr1BoEbuveI "Learn Godot by creating Pong")
 
 ## Screenshots
-![Example screenshot](./Screenshots/Godot-Pong.png)
+![Example screenshot](./Screenshots/Godot-Pong_02.png)
 
 ## Technologies
 * Godot - version 3.2.3.stable.mono.official
