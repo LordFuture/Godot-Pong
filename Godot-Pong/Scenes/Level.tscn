@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
@@ -10,11 +10,17 @@
 [ext_resource path="res://Scenes/WallLeft.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/WallRight.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Components/Level.cs" type="Script" id=10]
+[ext_resource path="res://Scenes/OpponentScore.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/PlayerScore.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node"]
 script = ExtResource( 10 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="OpponentScore" parent="." instance=ExtResource( 11 )]
+
+[node name="PlayerScore" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
