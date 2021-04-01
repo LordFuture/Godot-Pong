@@ -16,7 +16,8 @@ I have created  a version of Pong for the Unity game engine. I am going to recre
 
 I got the assets and code ideas from the following two sites: 
 
-* [Make A Pong Game With Unity 2D](https://www.awesomeinc.org/tutorials/unity-pong/ "Make A Pong Game With Unity 2D") and * [Unity 2D Pong Game](https://noobtuts.com/unity/2d-pong-game "Unity 2D Pong Game")
+* [Make A Pong Game With Unity 2D](https://www.awesomeinc.org/tutorials/unity-pong/ "Make A Pong Game With Unity 2D")
+* [Unity 2D Pong Game](https://noobtuts.com/unity/2d-pong-game "Unity 2D Pong Game")
 
 The following resources were also useful:
 
