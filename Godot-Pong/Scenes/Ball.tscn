@@ -6,7 +6,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.4264
 
-[node name="Ball" type="KinematicBody2D"]
+[node name="Ball" type="KinematicBody2D" groups=[
+"BallGroup",
+]]
 position = Vector2( 640, 360 )
 script = ExtResource( 2 )
 __meta__ = {
