@@ -7,11 +7,16 @@ public class Level : Node
     const float PositionStartY = 360.0f;
 
     KinematicBody2D currentBall = null;
+    KinematicBody2D player = null;
+    KinematicBody2D opponent = null;
     Timer timer = null;
     AudioStreamPlayer pingPong8bitPlop = null;
     Label playerScoreLabel = null;
     Label opponentScoreLabel = null;
     Label countdownLabel = null;
+
+    Vector2 playerStartPosition = new Vector2(76, 360);
+    Vector2 oppnentStartPosition = new Vector2(1204, 360);
 
     int playerScore = 0;
     int opponentScore = 0;
@@ -39,6 +44,8 @@ public class Level : Node
         timer.Start();
         countdownLabel.Visible = true;
         pingPong8bitPlop.Play();
+        player.Position = playerStartPosition;
+        opponent.Position = oppnentStartPosition;
     }
 
     private void _on_CountdownTimer_timeout()
@@ -54,6 +61,8 @@ public class Level : Node
         timer = GetNode<Timer>("CountdownTimer");
         countdownLabel = GetNode<Label>("CountdownTimerLabel");
         pingPong8bitPlop = GetNode<AudioStreamPlayer>("ScoreSound");
+        player = GetNode<KinematicBody2D>("Player");
+        opponent = GetNode<KinematicBody2D>("Opponent");
         countdownLabel.Visible = false;
     }
 
