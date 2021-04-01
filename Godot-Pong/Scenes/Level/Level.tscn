@@ -1,19 +1,35 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/WallTop.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/WallBottom.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Opponent.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/DottedLine.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/WallLeft.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/WallRight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Level/World/Props/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Level/World/Sky/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Level/World/Ground/WallTop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Level/World/Ground/WallBottom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Level/World/Props/Opponent.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Level/World/Props/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Level/World/Sky/DottedLine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Level/World/Ground/WallLeft.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Level/World/Ground/WallRight.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Components/Level.cs" type="Script" id=10]
-[ext_resource path="res://Scenes/OpponentScore.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/PlayerScore.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/CountdownTimer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/CountdownTimerLabel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Level/GUI/OpponentScore.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Level/GUI/PlayerScore.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Level/GUI/CountdownTimer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Level/GUI/CountdownTimerLabel.tscn" type="PackedScene" id=14]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [node name="Level" type="Node"]
 script = ExtResource( 10 )
