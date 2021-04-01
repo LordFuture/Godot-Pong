@@ -3,20 +3,21 @@ using System;
 
 public class Ball : KinematicBody2D
 {
-    float ballSpeed = 600.0f;
+    const float DefaultBallSpeed = 600.0f;
+    float ballSpeed = DefaultBallSpeed;
     Vector2 ballVelocity = Vector2.Zero;
-    private void LaunchBall()
-    {
-        GD.Randomize();
-        int[] randomX = {-1, 1};
-        float[] randomY = {-0.8f, 0.8f};
 
-        ballVelocity.x = randomX[GD.Randi() % 2];
-        ballVelocity.y = randomY[GD.Randi() % 2];
+    int[] randomX = {-1, 1};
+    float[] randomY = {-0.8f, 0.8f};
+    private void RandomBallAngle()
+    {
+        ballVelocity.x = new int[]{-1, 1}[GD.Randi() % 2];
+        ballVelocity.y = new float[]{-0.8f, 0.8f}[GD.Randi() % 2];
     }
     public override void _Ready()
     {
-        LaunchBall();
+        GD.Randomize();
+        RandomBallAngle();
     }
     public override void _PhysicsProcess(float delta)
     {
@@ -25,5 +26,16 @@ public class Ball : KinematicBody2D
         {
             ballVelocity = ballVelocity.Bounce(ballCollisionObject.Normal);
         }
+    }
+
+    private void StopBall()
+    {
+        ballSpeed = 0.0f;
+    }
+
+    private void StartBall()
+    {
+        ballSpeed = DefaultBallSpeed;
+        RandomBallAngle();
     }
 }
