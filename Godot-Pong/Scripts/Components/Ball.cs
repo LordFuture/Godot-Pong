@@ -4,11 +4,12 @@ using System;
 public class Ball : KinematicBody2D
 {
     const float DefaultBallSpeed = 600.0f;
-    float ballSpeed = DefaultBallSpeed;
     Vector2 ballVelocity = Vector2.Zero;
 
-    int[] randomX = {-1, 1};
-    float[] randomY = {-0.8f, 0.8f};
+    AudioStreamPlayer pingPong8bitBeeep = null;
+    
+    float ballSpeed = DefaultBallSpeed;
+
     private void RandomBallAngle()
     {
         ballVelocity.x = new int[]{-1, 1}[GD.Randi() % 2];
@@ -16,6 +17,7 @@ public class Ball : KinematicBody2D
     }
     public override void _Ready()
     {
+        pingPong8bitBeeep = GetNode<AudioStreamPlayer>("BallSound");
         GD.Randomize();
         RandomBallAngle();
     }
@@ -25,6 +27,7 @@ public class Ball : KinematicBody2D
         if(ballCollisionObject != null)
         {
             ballVelocity = ballVelocity.Bounce(ballCollisionObject.Normal);
+            pingPong8bitBeeep.Play();
         }
     }
 

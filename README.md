@@ -16,13 +16,13 @@ I have created  a version of Pong for the Unity game engine. I am going to recre
 
 I got the assets and code ideas from the following two sites: 
 
-[Make A Pong Game With Unity 2D](https://www.awesomeinc.org/tutorials/unity-pong/ "Make A Pong Game With Unity 2D") and [Unity 2D Pong Game](https://noobtuts.com/unity/2d-pong-game "Unity 2D Pong Game")
+* [Make A Pong Game With Unity 2D](https://www.awesomeinc.org/tutorials/unity-pong/ "Make A Pong Game With Unity 2D") and * [Unity 2D Pong Game](https://noobtuts.com/unity/2d-pong-game "Unity 2D Pong Game")
 
 The following resources were also useful:
 
-[Godot Docs](https://docs.godotengine.org/en/stable/index.html "Godot Docs")
-[Godot C#](https://docs.godotengine.org/en/stable/getting_started/scripting/c_sharp/index.html "Godot C#")
-[YouTube Video: Learn Godot by creating Pong](https://www.youtube.com/watch?v=kr1BoEbuveI "Learn Godot by creating Pong")
+* [Godot Docs](https://docs.godotengine.org/en/stable/index.html "Godot Docs")
+* [Godot C#](https://docs.godotengine.org/en/stable/getting_started/scripting/c_sharp/index.html "Godot C#")
+* [YouTube Video: Learn Godot by creating Pong](https://www.youtube.com/watch?v=kr1BoEbuveI "Learn Godot by creating Pong")
 
 ## Screenshots
 ![Example screenshot](./Screenshots/Godot-Pong_02.png)
@@ -42,30 +42,41 @@ using System;
 
 public class Ball : KinematicBody2D
 {
-    float ballSpeed = 600.0f;
+    const float DefaultBallSpeed = 600.0f;
+    float ballSpeed = DefaultBallSpeed;
     Vector2 ballVelocity = Vector2.Zero;
-    private void LaunchBall()
-    {
-        GD.Randomize();
-        int[] randomX = {-1, 1};
-        float[] randomY = {-0.8f, 0.8f};
 
-        ballVelocity.x = randomX[GD.Randi() % 2];
-        ballVelocity.y = randomY[GD.Randi() % 2];
+    int[] randomX = {-1, 1};
+    float[] randomY = {-0.8f, 0.8f};
+    private void RandomBallAngle()
+    {
+        ballVelocity.x = new int[]{-1, 1}[GD.Randi() % 2];
+        ballVelocity.y = new float[]{-0.8f, 0.8f}[GD.Randi() % 2];
     }
     public override void _Ready()
     {
-        LaunchBall();
+        GD.Randomize();
+        RandomBallAngle();
     }
     public override void _PhysicsProcess(float delta)
     {
         KinematicCollision2D  ballCollisionObject = 
             MoveAndCollide(ballVelocity * ballSpeed * delta);
-            
         if(ballCollisionObject != null)
         {
             ballVelocity = ballVelocity.Bounce(ballCollisionObject.Normal);
         }
+    }
+
+    private void StopBall()
+    {
+        ballSpeed = 0.0f;
+    }
+
+    private void StartBall()
+    {
+        ballSpeed = DefaultBallSpeed;
+        RandomBallAngle();
     }
 }
 ```

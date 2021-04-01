@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Audio/SoundEffects/ping_pong_8bit_beeep.ogg" type="AudioStream" id=1]
+
+[node name="BallSound" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
