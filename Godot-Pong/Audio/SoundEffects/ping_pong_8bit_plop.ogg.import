@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ping_pong_8bit_plop.ogg-ea3b567efede08550cda7c1a6cb2
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

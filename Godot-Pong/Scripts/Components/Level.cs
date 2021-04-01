@@ -8,10 +8,9 @@ public class Level : Node
 
     KinematicBody2D currentBall = null;
     Timer timer = null;
-
+    AudioStreamPlayer pingPong8bitPlop = null;
     Label playerScoreLabel = null;
     Label opponentScoreLabel = null;
-
     Label countdownLabel = null;
 
     int playerScore = 0;
@@ -39,6 +38,7 @@ public class Level : Node
         GetTree().CallGroup(ballGroup, ballGroupMethodStop);
         timer.Start();
         countdownLabel.Visible = true;
+        pingPong8bitPlop.Play();
     }
 
     private void _on_CountdownTimer_timeout()
@@ -53,6 +53,7 @@ public class Level : Node
         opponentScoreLabel = GetNode<Label>("OpponentScore");
         timer = GetNode<Timer>("CountdownTimer");
         countdownLabel = GetNode<Label>("CountdownTimerLabel");
+        pingPong8bitPlop = GetNode<AudioStreamPlayer>("ScoreSound");
         countdownLabel.Visible = false;
     }
 
